@@ -137,13 +137,14 @@ var youtubeApiCall = function(query) {
             q: query,
             type: 'video',
             key: 'AIzaSyAxUOvZf6kS55s8J81YvOFJkf-esz_cUHk',
-            maxResults: 3
+            maxResults: 10
         },
         function(data) {
             showResultBox(data);
         }
     );
 };
+console.log(youtubeApiCall);
 
 var clearItems = function() {
     console.log("cleard");
