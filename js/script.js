@@ -100,7 +100,7 @@ var parformUnderlineAnimation = function() {
 
 // perform animation on video play
 var onVideoAnim = function(videoId) {
-    $("#videoFrame").attr("src", "http://www.youtube.com/embed/" + videoId);
+    $("#videoFrame").attr("src", "https://www.youtube.com/embed/" + videoId);
 
     $(".logo").addClass("fadeOut");
     $(".searchBoxArea").addClass("fadeOut");
