@@ -10,10 +10,18 @@ $(document).ready(function() {
         if (query != "" && firstTime == 0) {
             firstTime = 1;
             afterSearchAnim();
-            youtubeApiCall(query);
+            //youtubeApiCall(query);
+            var data = youtubeApiCall(query);
+            var videoId = data.items[0].id.videoId;
+            onVideoAnim(videoId);
+            console.log('Badri'+videoId);
+
         } else if (query != "" && firstTime == 1) {
             clearItems();
-            youtubeApiCall(query);
+            var data = youtubeApiCall(query);
+            var videoId = data.items[0].id.videoId;
+
+            onVideoAnim(videoId);
         }
         return false;
     });
@@ -52,7 +60,7 @@ var showBoxes = function(data) {
     for (var i = 0; i < 3; i++) {
         var singleData = data.items[i].snippet;
 
-        console.log(data.items[i]);
+        // console.log(data.items[i]);
         var imgBox = "<img src=\"" + singleData.thumbnails.medium.url + "\" class=\"imgThumb\">";
         var title = singleData.title;
         var channel = singleData.channelTitle;
@@ -100,7 +108,7 @@ var parformUnderlineAnimation = function() {
 
 // perform animation on video play
 var onVideoAnim = function(videoId) {
-    $("#videoFrame").attr("src", "https://www.youtube.com/embed/" + videoId);
+    $("#videoFrame").attr("src", "https://www.youtube.com/embed/" + videoId + '?autoplay=1');
 
     $(".logo").addClass("fadeOut");
     $(".searchBoxArea").addClass("fadeOut");
@@ -143,10 +151,11 @@ var youtubeApiCall = function(query) {
             showResultBox(data);
         }
     );
+
 };
-console.log(youtubeApiCall);
+// console.log(youtubeApiCall);
 
 var clearItems = function() {
-    console.log("cleard");
+    // console.log("cleard");
     $(".resutlBox").find(".eachResult").fadeOut("slow");
 };
