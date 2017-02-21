@@ -51,7 +51,7 @@ var showResultBox = function(data) {
 };
 
 var showBoxes = function(data) {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 4; i++) {
         var singleData = data.items[i].snippet;
 
         console.log(data.items[i]);
@@ -75,18 +75,12 @@ var showBoxes = function(data) {
     $(".videoPlay").on("click", function() {
         var id = $(this).attr("id");
         var videoId = data.items[id].id.videoId;
+        var videoTitle = data.items[id].id.videoTitle;
 
-        onVideoAnim(videoId);
+        onVideoAnim(videoId, videoTitle);
     });
-
 };
 
-var playvideo = $(".videoPlay").on("click", function() {
-    var id = $(this).attr("id");
-    var videoId = data.items[id].id.videoId;
-
-    onVideoAnim(videoId);
-});
 // perform aftersearch animation
 var afterSearchAnim = function() {
     $(".contentBox").addClass("active");
@@ -108,12 +102,13 @@ var parformUnderlineAnimation = function() {
 };
 
 // perform animation on video play
-var onVideoAnim = function(videoId) {
+var onVideoAnim = function(videoId, videoTitle) {
     $("#videoFrame").attr("src", "http://www.youtube.com/embed/" + videoId);
+    $("#infoBox").html(videoTitle);
 
     $(".logo").addClass("fadeOut");
-    // $(".searchBoxArea").addClass("fadeOut");
-    // $(".resutlBox").addClass("fadeOut");
+    $(".searchBoxArea").addClass("fadeOut");
+    $(".resutlBox").addClass("fadeOut");
     $(".contentBox").addClass("contentBoxBig");
 
     setTimeout(function() {
@@ -146,13 +141,14 @@ var youtubeApiCall = function(query) {
             q: query,
             type: 'video',
             key: 'AIzaSyAxUOvZf6kS55s8J81YvOFJkf-esz_cUHk',
-            maxResults: 10
+            maxResults: 4
         },
         function(data) {
             showResultBox(data);
             var videoId = data.items[0].id.videoId;
-            onVideoAnim(videoId);
-            playvideo();
+            var videoTitle = data.items[0].id.videoTitle;
+
+            onVideoAnim(videoId, videoTitle);
         }
     );
 };
@@ -161,7 +157,3 @@ var clearItems = function() {
     console.log("cleard");
     $(".resutlBox").find(".eachResult").fadeOut("slow");
 };
-
-var setFocusToTextBox = function() {
-    document.getElementById("searchwrapper").focus();
-}

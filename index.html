@@ -9,30 +9,47 @@
     <script src="/assets/js/script.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js">
+    </script>
 
 </head>
 
 <body>
-    <!-- Searchbar goes here -->
+    <!-- Navbar goes here -->
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">
+                <div id="searchwrapper" onlick="setFocusToTextBox()">
+                    <form class="searchForm" id="inputform" action="" method="">
+                        <input type="text" name="searchVal" class="searchBox" value="" autocomplete="off" autofocus="true" placeholder="Search Videos...">
+                    </form>
+                </div>
+            </a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="sass.html">OyeTube</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- Page Layout here -->
     <div class="row">
         <div class="col s12 m8 l9">
             <!--<div class="col s2 m4 l3">
                 <div class="logo fa fa-youtube-play"></div>
             </div>-->
-            <div class="col s12 m12 l12">
-                <div id="searchwrapper" onlick="setFocusToTextBox()">
-                    <form class="searchForm" action="" method="">
-                        <input type="text" name="searchVal" class="searchBox" value="" autocomplete="off" autofocus="true" placeholder="Search Videos...">
-                    </form>
-                </div>
-            </div>
+            <!--<div class="col s12 m12 l12">
+
+            </div>-->
             <!--main content-->
             <div class="videoBox">
                 <iframe id="videoFrame" src="">
                         </iframe>
                 <div class="closeVideoBtn"><i class=" fa fa-close"></i></div>
+            </div>
+            <div class="videodetail">
+                <h2 class="videoTitle">
+                    <div id="infobox"></div>
+                </h2>
             </div>
 
         </div>
@@ -52,6 +69,7 @@
             </div>
         </div>
     </div>
+
 </body>
 <!--<script src="/js/script.js" />-->
 
