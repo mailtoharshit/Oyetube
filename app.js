@@ -10,6 +10,10 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+//reference to static resources
+app.use(express.static(__dirname + '/static'));
+
+
 //dynamically toggle to port
 app.listen(port);
 
