@@ -51,7 +51,7 @@ var showResultBox = function(data) {
 };
 
 var showBoxes = function(data) {
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 3; i++) {
         var singleData = data.items[i].snippet;
 
         console.log(data.items[i]);
@@ -141,7 +141,7 @@ var youtubeApiCall = function(query) {
             q: query,
             type: 'video',
             key: 'AIzaSyAxUOvZf6kS55s8J81YvOFJkf-esz_cUHk',
-            maxResults: 4
+            maxResults: 3
         },
         function(data) {
             showResultBox(data);
