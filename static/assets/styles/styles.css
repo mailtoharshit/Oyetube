@@ -19,7 +19,7 @@
   }
 
   body {
-      background-color: white;
+      background-color: #F1F1F1;
       /*display: flex;
       align-items: center;
       justify-content: center;*/
@@ -149,6 +149,7 @@
       display: block;
       width: 100%;
       margin: 0px 0px 20px 0px;
+      background-color:white;
   }
 
   .resutlBox .eachResult .imgBox {
@@ -214,9 +215,9 @@
 
   .videoBox iframe {
       position: relative;
-      height: 75%;
-      width: 95%;
-      margin-left: 2%
+      height: 80%;
+      width: 98%;
+      margin-left: 1%
   }
 
   .videoBox .closeVideoBtn {
