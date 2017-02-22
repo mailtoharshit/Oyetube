@@ -10,9 +10,12 @@ $(document).ready(function() {
         if (query != "" && firstTime == 0) {
             firstTime = 1;
             afterSearchAnim();
+            deleteItems();
             youtubeApiCall(query);
+
+
         } else if (query != "" && firstTime == 1) {
-            clearItems();
+            deleteItems();
             youtubeApiCall(query);
 
         }
@@ -156,5 +159,8 @@ var youtubeApiCall = function(query) {
 var clearItems = function() {
     console.log("cleard");
     $(".resutlBox").find(".eachResult").fadeOut("slow");
-    $(".resutlBox").fadeOut("slow");
 };
+
+var deleteItems = function() {
+    $(".resutlBox").find(".eachResult").remove();
+}
