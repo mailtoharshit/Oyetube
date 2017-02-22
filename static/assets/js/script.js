@@ -25,6 +25,7 @@ $(document).ready(function() {
         var query = $(".searchBox").val();
         if (query != "" && firstTime == 0) {
             firstTime = 1;
+            clearItems();
             afterSearchAnim();
             youtubeApiCall(query);
         } else if (query != "" && firstTime == 1) {
