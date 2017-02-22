@@ -9,11 +9,12 @@ $(document).ready(function() {
         var query = $(".searchBox").val();
         if (query != "" && firstTime == 0) {
             firstTime = 1;
-            deleteItems();
+            // deleteItems();
             afterSearchAnim();
             youtubeApiCall(query);
         } else if (query != "" && firstTime == 1) {
-            deleteItems();
+            //deleteItems();
+            afterSearchAnim();
             youtubeApiCall(query);
 
         }
@@ -25,11 +26,12 @@ $(document).ready(function() {
         var query = $(".searchBox").val();
         if (query != "" && firstTime == 0) {
             firstTime = 1;
-            clearItems();
+            //deleteItems();
             afterSearchAnim();
             youtubeApiCall(query);
         } else if (query != "" && firstTime == 1) {
-            clearItems();
+            deleteItems();
+            afterSearchAnim();
             youtubeApiCall(query);
         }
         return false;
@@ -135,8 +137,18 @@ var onVideoClose = function() {
     }, 1000);
 };
 
+var clearItems = function() {
+    console.log("cleard");
+    $(".resutlBox").find(".eachResult").fadeOut("slow");
+};
+
+var deleteItems = function() {
+    $(".resutlBox").find(".eachResult").remove();
+}
+
 // youtubeApiCall
 var youtubeApiCall = function(query) {
+    deleteItems();
     $.get(
         "https://www.googleapis.com/youtube/v3/search", {
             part: 'snippet, id',
@@ -155,11 +167,3 @@ var youtubeApiCall = function(query) {
     );
 };
 
-var clearItems = function() {
-    console.log("cleard");
-    $(".resutlBox").find(".eachResult").fadeOut("slow");
-};
-
-var deleteItems = function() {
-    $(".resutlBox").find(".eachResult").remove();
-}
