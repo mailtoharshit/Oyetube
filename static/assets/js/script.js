@@ -156,4 +156,5 @@ var youtubeApiCall = function(query) {
 var clearItems = function() {
     console.log("cleard");
     $(".resutlBox").find(".eachResult").fadeOut("slow");
+    $(".resutlBox").fadeOut("slow");
 };
