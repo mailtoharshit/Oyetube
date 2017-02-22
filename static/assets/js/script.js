@@ -9,11 +9,9 @@ $(document).ready(function() {
         var query = $(".searchBox").val();
         if (query != "" && firstTime == 0) {
             firstTime = 1;
-            afterSearchAnim();
             deleteItems();
+            afterSearchAnim();
             youtubeApiCall(query);
-
-
         } else if (query != "" && firstTime == 1) {
             deleteItems();
             youtubeApiCall(query);
