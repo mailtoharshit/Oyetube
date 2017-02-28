@@ -116,7 +116,8 @@ var youtubeApiCall = function(query) {
             q: query,
             type: 'video',
             key: 'AIzaSyAxUOvZf6kS55s8J81YvOFJkf-esz_cUHk',
-            maxResults: 3
+            maxResults: 3,
+            order: date
         },
         function(data) {
             showResultBox(data);
